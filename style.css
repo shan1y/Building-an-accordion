@@ -1,0 +1,201 @@
+
+:root {
+    --text-blue:hsl(238, 29%, 16%);
+    --text-dkBlue:hsl(237, 12%, 33%);
+    --text-grBlue:hsl(240, 6%, 50%);
+    --text-red:hsl(14, 88%, 65%);
+    --gradient-violet:hsl(273, 75%, 66%);
+    --gradient-blue:hsl(240, 73%, 65%);
+    --divider-blue:hsl(240, 5%, 91%);
+}
+
+h1,h2,h3 {
+    margin-top: 0;
+}
+
+html {
+    box-sizing: initial;
+    font-size:100%;
+}
+
+*, *::before, *::after{
+    box-sizing: inherit;
+}
+
+body {
+    min-height: 100vh;
+    margin:0;
+    padding:10rem 1rem;
+    font-family: 'Kumbh Sans', sans-serif;
+    background-image: linear-gradient(var(--gradient-violet),var(--gradient-blue));
+    color:var(--text-blue);
+}
+
+.accordionContent {
+    font-size: 0.75rem;
+    line-height: 1.4rem;
+    padding-bottom: 1rem;
+}
+
+.card {
+    background:white;
+    border-radius: 2rem;
+    max-width: 56rem;
+    background-image: url('images/bg-pattern-mobile.svg');
+    background-repeat: no-repeat;
+    background-position: center 0%;
+    background-size: 15rem;
+    position: relative;
+    padding: 2.875rem 1.5rem;
+ 
+    
+
+}
+
+.cardBox {
+    display:none;
+}
+
+.cardImage img{
+    width: 100%;
+    height:auto;
+    top:-6.8rem;
+    max-width:15rem;
+    position: absolute;
+    display: block;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+.cardImage {
+    position:relative;
+}
+
+.cardText {
+    padding-top: 7rem;
+
+}
+
+.accordionItem{
+    border-bottom: 1px solid var(--divider-blue) ;
+    padding-top: 1rem;
+}
+
+.accordionQuestion {
+    display: flex;
+    width:100%;
+    justify-content: space-between;
+    align-items:center;
+    border:none;
+    background:transparent;
+    padding:0.2rem;
+    font-size:0.875rem;
+    font-family: 'Kumbh Sans', sans-serif;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.accordionQuestion::after {
+    content: '';
+    display: block;
+    width: 0.625rem;
+    height: 1rem;
+    background-image: url('/images/icon-arrow-down.svg');
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center center;
+    border:none;
+    transition: transform 300ms ease-in-out;
+
+
+}
+
+.accordionQuestion:focus, .accordionQuestion:focus-visible {
+    border:none;
+    outline:dashed 1px hsl(240,6%,50%,50%);
+}
+
+.accordionItem h2 {
+    margin-bottom: 0;
+}
+
+
+.accordionQuestion.open{
+    font-weight:700;
+}
+
+.accordionQuestion.open::after{
+    transform: rotate(180deg);
+}
+
+.accordionCollapse.collapse{
+    display:none;
+}
+
+.accordionCollapse {
+    transition: height 300ms ease; 
+}
+
+.accordionCollapse.collapsing {
+    height:0;
+    overflow:hidden;
+}
+
+.accordionCollapse.open{
+    display: block;
+
+
+}
+
+@media (min-width: 56em){
+    .card{
+        position: relative;
+        display: flex;
+        margin: 0 auto;
+        padding:4.375rem 6.25rem 4.375rem 0rem;
+        background-image: url('images/bg-pattern-desktop.svg');
+        background-size: 45%;
+        background-position: -18% center;
+        background-repeat: no-repeat;
+        
+    }
+
+    body {
+        padding: 5 rem;
+    }
+
+
+    .cardImage, .cardText{
+        flex:1;
+       
+    }
+
+    .cardImage {
+        display:flex;
+        align-items:center;
+        overflow:hidden;
+    }
+
+    .cardImage img{
+        transform: translateX(-4rem);
+        max-width: 25rem;
+        top:auto;
+        position: relative;
+        left: auto;
+
+    }
+
+    .cardBox{
+        display:block;
+        position:absolute;
+        top:55%;
+        left:0;
+        transform:translateX(-50%) translateY(-50%);
+        z-index: 1;
+    }
+
+    .cardText {
+        padding-top: 0;
+    }
+}
