@@ -107,22 +107,16 @@ body {
     background-position: center center;
     border:none;
     transition: transform 300ms ease-in-out;
-
-
-}
-
-.accordionQuestion:focus, .accordionQuestion:focus-visible {
-    border:none;
-    outline:dashed 1px hsl(240,6%,50%,50%);
-}
-
-.accordionItem h2 {
-    margin-bottom: 0;
 }
 
 
 .accordionQuestion.open{
     font-weight:700;
+}
+
+.accordionQuestion:hover {
+    color: #ff8800;
+    cursor: pointer;
 }
 
 .accordionQuestion.open::after{
